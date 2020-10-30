@@ -45,7 +45,7 @@ WAVEFORM=[name of waveform file to be viewed in gtkwave]
  "#" Comments
  - does not support same line comments (yet)
 
- ## Alternate script svmake
+ # Alternate script svmake
 
  ### Description
  Specify only the top file and optionally, the waveform file
@@ -53,5 +53,14 @@ WAVEFORM=[name of waveform file to be viewed in gtkwave]
 
  If a waveform file is specified, then gtkwave will automatically be launched
 
+ This can be run from a different folder provided all source files exist within the directory or subfolders
+ In this case specify top file as the full path to file. ie `-s folder/subfolder/file.v`. The executible will always be created in the current directory
+
  ### Syntax
  ``` svmake -s top_file.v [ -w waveform_file.vcf ]```
+
+ ### Example
+ ``` svmake -s folder1/top_level.sv -w waveform.vcf```
+
+ ### Misc
+ Using folders and files with spaces has not been tested but is expected not to work
