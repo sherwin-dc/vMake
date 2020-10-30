@@ -25,13 +25,17 @@ fi
 
 
 
-sourcefiles=$(find . -type f -iname "*.sv" -o -type f -iname "*.v")
+sourcefiles=$(find * -type f -iname "*.sv" -o -type f -iname "*.v")
 
-srcfiles=$(echo $srcfiles | tr '\n' ' ')
+srcfiles=$(echo $sourcefiles | tr '\n' ' ')
+"$srcfiles"
 
 if [ -n "$topmod" ]; then
-iverilog -Wall -g2012 -s $topmod -o $srcfiles
-./$topmod
+
+IFS='.' read -ra OUT <<< "$topmod"
+
+iverilog -Wall -g2012 -s "$topmod" -o "${OUT[0]}" "$srcfiles"
+./${OUT[0]}
 else
 echo -e "Please specify top level file with -s flag. Use with --help for more details."
 exit 1

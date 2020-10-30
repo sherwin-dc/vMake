@@ -44,3 +44,14 @@ WAVEFORM=[name of waveform file to be viewed in gtkwave]
 
  "#" Comments
  - does not support same line comments (yet)
+
+ ## Alternate script svmake
+
+ ### Description
+ Specify only the top file and optionally, the waveform file
+ svmake will automatically add all .v and .sv files in the current folder and all subfolders as sourcefiles
+
+ If a waveform file is specified, then gtkwave will automatically be launched
+
+ ### Syntax
+ ``` svmake -s top_file.v [ -w waveform_file.vcf ]```
